@@ -75,7 +75,6 @@ namespace XD_s_AutoClicker
                             button4.Hide();
                             UnregisterHotKey(this.Handle, 1);
                             UnregisterHotKey(this.Handle, 2);
-                            this.Size = new Size(410, 148);
 
                             Application.EnableVisualStyles();
                             using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
@@ -120,7 +119,7 @@ namespace XD_s_AutoClicker
         public Form1()
         {
             InitializeComponent();
-            this.Size = new Size(410, 140);
+            this.Size = new Size(410, 145);
 
             appData = Path.Combine(appData, "XD's AutoClicker");
 
