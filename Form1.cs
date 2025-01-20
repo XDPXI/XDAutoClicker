@@ -119,7 +119,6 @@ namespace XD_s_AutoClicker
         public Form1()
         {
             InitializeComponent();
-            this.Size = new Size(410, 145);
 
             appData = Path.Combine(appData, "XD's AutoClicker");
 
