@@ -15,7 +15,7 @@ namespace XD_s_AutoClicker
     public partial class Form1 : Form
     {
         private int clickInterval;
-        private string version = "14";
+        private string version = "2.0.0";
         private bool isClickerRunning = false;
         private bool isLeftClick = true;
         private bool hasRun = false;

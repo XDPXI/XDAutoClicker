@@ -71,7 +71,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>06F1CEE2B85EFA6DFF1CEBA1CBE75C5E1C5BE176</ManifestCertificateThumbprint>
@@ -119,9 +120,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
-    <None Include="XD%27s AutoClicker_TemporaryKey.pfx" />
-    <Resource Include="MinecraftRegular.otf" />
-    <None Include="key.snk" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
