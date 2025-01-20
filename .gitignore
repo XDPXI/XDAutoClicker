@@ -1,0 +1,111 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific folders
+.vs/
+.vscode/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Oo]ut/
+[Bb]uild/
+[Bb]in/
+[Oo]bj/
+
+# Packages
+*.nupkg
+*.snupkg
+*.pkgproj
+.nuget/
+packages/
+
+# Visual Studio Code workspace and tasks
+.vscode/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.ldf
+*.mdf
+*.svclog
+
+# Web files
+ClientBin/
+Generated_Code/
+
+# Hidden folders
+.*_backup/
+.*_package/
+.*_restore/
+
+# JetBrains Rider
+.idea/
+
+# Rider plugin folders
+.idea_modules/
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# macOS generated files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Add any custom exclusions below this line
+# For example, database or sensitive files
+*.bak
+*.db
+
+# End of file
