@@ -14,7 +14,8 @@ namespace XDAutoClicker
     public partial class App : Form
     {
         private int clickInterval;
-        private string version = "2.0.0";
+        private string versionString = "2.0.0";
+        private int versionInt = 15;
         private bool isClickerRunning = false;
         private bool isLeftClick = true;
         private bool hasRun = false;
@@ -56,10 +57,12 @@ namespace XDAutoClicker
             {
                 using (HttpClient client2 = new HttpClient())
                 {
-                    string result = await client2.GetStringAsync("https://raw.githubusercontent.com/XDPXI/XDAutoClicker/refs/heads/main/latest");
-                    string versionNumber = result.Trim();
+                    string resultInt = await client2.GetStringAsync("https://raw.githubusercontent.com/XDPXI/XDAutoClicker/refs/heads/main/latest");
+                    int latestVersionInt = int.Parse(resultInt.Trim());
+                    string resultString = await client2.GetStringAsync("https://raw.githubusercontent.com/XDPXI/XDAutoClicker/refs/heads/main/latestString");
+                    string latestVersionString = resultString.Trim();
                     {
-                        if (versionNumber != version)
+                        if (latestVersionInt > versionInt && latestVersionString != versionString)
                         {
                             progressBar2.Show();
                             label1.Show();
@@ -82,7 +85,7 @@ namespace XDAutoClicker
                                 if (folderDialog.ShowDialog() == DialogResult.OK)
                                 {
                                     string selectedFolder = folderDialog.SelectedPath;
-                                    string destinationPath = $@"{selectedFolder}\XD's AutoClicker V{versionNumber}.exe";
+                                    string destinationPath = $@"{selectedFolder}\XD's AutoClicker V{latestVersionString}.exe";
                                     try
                                     {
                                         using (HttpClient client = new HttpClient())
