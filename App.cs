@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Net;
-using System.Drawing;
 using System.Net.Http;
 using System.Net.Sockets;
 using System.Diagnostics;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 
-namespace XD_s_AutoClicker
+namespace XDAutoClicker
 {
     public partial class App : Form
     {

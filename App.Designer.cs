@@ -1,4 +1,4 @@
-﻿namespace XD_s_AutoClicker
+﻿namespace XDAutoClicker
 {
     partial class App
     {

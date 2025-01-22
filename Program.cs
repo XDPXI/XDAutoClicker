@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace XD_s_AutoClicker
+namespace XDAutoClicker
 {
     internal static class Program
     {
