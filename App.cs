@@ -14,8 +14,7 @@ namespace XDAutoClicker
     public partial class App : Form
     {
         private int clickInterval;
-        private string versionString = "2.1.0";
-        private int versionInt = 16;
+        private int version = 16;
         private bool isClickerRunning = false;
         private bool isLeftClick = true;
         private bool hasRun = false;
@@ -62,7 +61,7 @@ namespace XDAutoClicker
                     string resultString = await client2.GetStringAsync("https://raw.githubusercontent.com/XDPXI/XDAutoClicker/refs/heads/main/latestString");
                     string latestVersionString = resultString.Trim();
                     {
-                        if (latestVersionInt > versionInt && latestVersionString != versionString)
+                        if (latestVersionInt > version)
                         {
                             progressBar2.Show();
                             label1.Show();
