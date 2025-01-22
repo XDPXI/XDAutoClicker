@@ -14,8 +14,8 @@ namespace XDAutoClicker
     public partial class App : Form
     {
         private int clickInterval;
-        private string versionString = "2.0.0";
-        private int versionInt = 15;
+        private string versionString = "2.1.0";
+        private int versionInt = 16;
         private bool isClickerRunning = false;
         private bool isLeftClick = true;
         private bool hasRun = false;
