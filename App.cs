@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 
 namespace XD_s_AutoClicker
 {
-    public partial class Form1 : Form
+    public partial class App : Form
     {
         private int clickInterval;
         private string version = "2.0.0";
@@ -116,7 +116,7 @@ namespace XD_s_AutoClicker
             this.WindowState = FormWindowState.Minimized;
         }
 
-        public Form1()
+        public App()
         {
             InitializeComponent();
 
