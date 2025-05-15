@@ -13,6 +13,7 @@ namespace XDAutoClicker
     {
         private readonly string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         private readonly int version = 16;
+        private readonly string versionString = "2.2.0";
         private int clickInterval;
         private bool hasRun;
         private Keys hotkey1 = Keys.F6;
@@ -119,15 +120,12 @@ namespace XDAutoClicker
             {
                 using (var client2 = new HttpClient())
                 {
-                    var resultInt =
+                    var result =
                         await client2.GetStringAsync(
-                            "https://raw.githubusercontent.com/XDPXI/XDAutoClicker/refs/heads/main/latest");
-                    var latestVersionInt = int.Parse(resultInt.Trim());
-                    var resultString = await client2.GetStringAsync(
-                        "https://raw.githubusercontent.com/XDPXI/XDAutoClicker/refs/heads/main/latestString");
-                    var latestVersionString = resultString.Trim();
+                            "https://raw.githubusercontent.com/XDPXI/XDAutoClicker/release/2.X.X/latest");
+                    var latestVersion = int.Parse(result.Trim());
                     {
-                        if (latestVersionInt > version)
+                        if (latestVersion > version)
                         {
                             progressBar2.Show();
                             label1.Show();
@@ -151,7 +149,7 @@ namespace XDAutoClicker
                                 {
                                     var selectedFolder = folderDialog.SelectedPath;
                                     var destinationPath =
-                                        $@"{selectedFolder}\XD's AutoClicker V{latestVersionString}.exe";
+                                        $@"{selectedFolder}\XD's AutoClicker V{versionString}.exe";
                                     try
                                     {
                                         using (var client = new HttpClient())
@@ -163,6 +161,7 @@ namespace XDAutoClicker
                                     }
                                     catch (Exception)
                                     {
+                                        //
                                     }
 
                                     Process.Start("explorer.exe", $"/select,\"{destinationPath}\"");
@@ -180,9 +179,9 @@ namespace XDAutoClicker
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error Updating!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error Updating: {ex}", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
