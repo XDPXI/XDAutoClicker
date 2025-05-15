@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Net;
 using System.Net.Http;
-using System.Net.Sockets;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Threading.Tasks;
@@ -14,22 +12,22 @@ namespace XDAutoClicker
     public partial class App : Form
     {
         private int clickInterval;
-        private int version = 16;
+        private readonly int version = 16;
         private bool isClickerRunning = false;
         private bool isLeftClick = true;
         private bool hasRun = false;
-        private string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        private readonly string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         private Keys hotkey1 = Keys.F6;
         private Keys hotkey2 = Keys.F7;
         private bool isWaitingForKey = false;
         private int hotkeyToChange;
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-        public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, int dwExtraInfo);
+        private static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint dwData, int dwExtraInfo);
         [DllImport("user32.dll")]
-        public static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
+        private static extern bool RegisterHotKey(IntPtr hWnd, int id, uint fsModifiers, uint vk);
         [DllImport("user32.dll")]
-        public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+        private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
 
 
         private bool HasTextButNoNumbers()
@@ -50,7 +48,7 @@ namespace XDAutoClicker
             return false;
         }
 
-        private async void update()
+        private new async void Update()
         {
             try
             {
@@ -99,7 +97,7 @@ namespace XDAutoClicker
                                 }
                                 else
                                 {
-                                    hide();
+                                    Hide();
                                     MessageBox.Show($"Error Updating!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     Close();
                                 }
@@ -111,7 +109,7 @@ namespace XDAutoClicker
             catch (Exception) { }
         }
 
-        private void hide()
+        private new void Hide()
         {
             this.ShowInTaskbar = false;
             this.WindowState = FormWindowState.Minimized;
@@ -123,8 +121,8 @@ namespace XDAutoClicker
 
             appData = Path.Combine(appData, "XD's AutoClicker");
 
-            createFiles();
-            update();
+            CreateFiles();
+            Update();
 
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Interval = 1000;
@@ -181,7 +179,7 @@ namespace XDAutoClicker
             label4.Hide();
         }
 
-        private void createFiles()
+        private void CreateFiles()
         {
             hasRun = false;
             if (!hasRun)
@@ -189,19 +187,6 @@ namespace XDAutoClicker
                 hasRun = true;
                 Directory.CreateDirectory(appData);
             }
-        }
-
-        static string GetLocalIPAddress()
-        {
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (var ip in host.AddressList)
-            {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    return ip.ToString();
-                }
-            }
-            throw new Exception("");
         }
 
         private void Form1_Load(object sender, EventArgs e) { }
@@ -416,16 +401,6 @@ namespace XDAutoClicker
             isClickerRunning = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ToggleAutoClicker();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ToggleAutoClicker();
-        }
-
         private void PerformClick()
         {
             if (isLeftClick)
@@ -438,31 +413,17 @@ namespace XDAutoClicker
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            PerformClick();
-        }
+        private void button1_Click(object sender, EventArgs e) { ToggleAutoClicker(); }
+        private void button2_Click(object sender, EventArgs e) { ToggleClickType(); }
+        private void button3_Click(object sender, EventArgs e) { ChangeHotkey(1); }
+        private void button4_Click(object sender, EventArgs e) { ChangeHotkey(2); }
+        private void timer1_Tick(object sender, EventArgs e) { PerformClick(); }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             UnregisterHotKey(this.Handle, 1);
             UnregisterHotKey(this.Handle, 2);
             base.OnFormClosing(e);
-        }  
-        
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            ToggleClickType();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ChangeHotkey(1);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            ChangeHotkey(2);
         }
     }
 }
