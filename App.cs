@@ -12,8 +12,8 @@ namespace XDAutoClicker
     public partial class App : Form
     {
         private readonly string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        private readonly int version = 16;
-        private readonly string versionString = "2.2.0";
+        private readonly int version = 17;
+        private readonly string versionString = "2.1.1";
         private int clickInterval;
         private bool hasRun;
         private Keys hotkey1 = Keys.F6;
@@ -203,6 +203,7 @@ namespace XDAutoClicker
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.Text = $"XD's AutoClicker - V{versionString}";
         }
 
         protected override void WndProc(ref Message m)
