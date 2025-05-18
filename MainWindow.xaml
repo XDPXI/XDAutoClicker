@@ -15,28 +15,28 @@
     <Window.Resources>
         <!-- Button Style -->
         <Style TargetType="Button">
-            <Setter Property="Background" Value="#7b0093"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderBrush" Value="#bb00e0"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Background" Value="#7b0093" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="#bb00e0" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Cursor" Value="Hand" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="BorderBrush" Value="#e066ff"/>
+                                <Setter Property="BorderBrush" Value="#e066ff" />
                             </Trigger>
                             <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="BorderBrush" Value="#e066ff"/>
+                                <Setter Property="BorderBrush" Value="#e066ff" />
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Opacity" Value="0.5"/>
+                                <Setter Property="Opacity" Value="0.5" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -46,29 +46,29 @@
 
         <!-- TextBox Style -->
         <Style TargetType="TextBox">
-            <Setter Property="Background" Value="#7b0093"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderBrush" Value="#bb00e0"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="CaretBrush" Value="White"/>
-            <Setter Property="Cursor" Value="IBeam"/>
+            <Setter Property="Background" Value="#7b0093" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="#bb00e0" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="CaretBrush" Value="White" />
+            <Setter Property="Cursor" Value="IBeam" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
                         <Border Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}">
-                            <ScrollViewer x:Name="PART_ContentHost" Margin="0"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="0" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="BorderBrush" Value="#e066ff"/>
+                                <Setter Property="BorderBrush" Value="#e066ff" />
                             </Trigger>
                             <Trigger Property="IsKeyboardFocused" Value="True">
-                                <Setter Property="BorderBrush" Value="#e066ff"/>
+                                <Setter Property="BorderBrush" Value="#e066ff" />
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Opacity" Value="0.5"/>
+                                <Setter Property="Opacity" Value="0.5" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -76,11 +76,11 @@
             </Setter>
         </Style>
     </Window.Resources>
-    
+
     <Border Background="#FF1E1E2E" CornerRadius="10" Padding="10" BorderThickness="2"
             BorderBrush="#bb00e0">
         <Grid>
-            <!-- Title Bar -->  
+            <!-- Title Bar -->
             <Border Cursor="Cross" Background="#bb00e0" BorderThickness="1" BorderBrush="#bb00e0"
                     MouseLeftButtonDown="Border_MouseLeftButtonDown"
                     CornerRadius="7" Margin="0,0,0,143">
@@ -106,14 +106,18 @@
 
                 <!-- Row 2 -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,4" Height="40" Width="325">
-                    <Button Click="Button1_OnClick" Name="Button1" Content="Start (F6)" Width="155" Height="30" Margin="3" />
-                    <Button Click="Button2_OnClick" Name="Button2" Content="Left Click (F7)" Width="155" Height="30" Margin="4"/>
+                    <Button Click="Button1_OnClick" Name="Button1" Content="Start (F6)" Width="155" Height="30"
+                            Margin="3" />
+                    <Button Click="Button2_OnClick" Name="Button2" Content="Left Click (F7)" Width="155" Height="30"
+                            Margin="4" />
                 </StackPanel>
 
                 <!-- Row 3 -->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,4" Width="325">
-                    <Button Click="Button3_OnClick" Name="Button3" Content="Change Keybind" Width="155" Height="30" Margin="3" />
-                    <Button Click="Button4_OnClick" Name="Button4" Content="Change Keybind" Width="155" Height="30" Margin="4" />
+                    <Button Click="Button3_OnClick" Name="Button3" Content="Change Keybind" Width="155" Height="30"
+                            Margin="3" />
+                    <Button Click="Button4_OnClick" Name="Button4" Content="Change Keybind" Width="155" Height="30"
+                            Margin="4" />
                 </StackPanel>
             </StackPanel>
         </Grid>
