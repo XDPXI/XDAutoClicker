@@ -1,8 +1,7 @@
 ﻿using System.Windows;
 
-namespace xdautoclicker
+namespace xdautoclicker;
+
+public partial class App : Application
 {
-    public partial class App : Application
-    {
-    }
 }
